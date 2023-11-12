@@ -5,6 +5,7 @@ const GroupsList = ({ list }) => {
   return (
     <Card className={'groups_list_container'}>
       <List
+        className={'groups_list_container__list'}
         itemLayout="horizontal"
         dataSource={list}
         renderItem={(item) => (

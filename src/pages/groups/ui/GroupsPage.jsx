@@ -62,7 +62,7 @@ const GroupsPage = () => {
     ? list
     : list.filter((el) => {
         let pos = -1;
-        while ((pos = el.name.toLowerCase().indexOf(searchParam.toLowerCase(), pos + 1)) != -1) {
+        while ((pos = el.name.toLowerCase().indexOf(searchParam.toLowerCase(), pos + 1)) !== -1) {
           return true;
         }
       });
