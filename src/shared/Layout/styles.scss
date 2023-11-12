@@ -1,0 +1,41 @@
+@import '../variables';
+
+.app_wrapper {
+  height: 100%;
+  width: 100%;
+
+  .content_wrapper__header {
+    display: flex;
+    background-color: $main-5;
+    height: 70px;
+    padding: 0 20px;
+    align-items: center;
+    color: #fff;
+  }
+
+  .content_wrapper {
+    display: flex;
+    height: calc(100% - 70px);
+
+    &__sidebar {
+      z-index: 100;
+      background-color: $main-10;
+      width: fit-content;
+
+      .menu_wrapper{
+        width: 260px;
+        transition: 0.3s;
+        height: 100%;
+      }
+    }
+
+    &__content {
+      background-color: $main-light;
+      flex-grow: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}
