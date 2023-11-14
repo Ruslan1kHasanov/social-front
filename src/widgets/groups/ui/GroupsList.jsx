@@ -5,7 +5,7 @@ import './index.scss';
 const GroupsList = ({ list }) => {
   // тут будет хук на получение объекта пользователя
   const is_admin = true;
-  console.log(is_admin);
+  // console.log(is_admin);
   return (
     <Card className={'groups_list_container'}>
       <List
