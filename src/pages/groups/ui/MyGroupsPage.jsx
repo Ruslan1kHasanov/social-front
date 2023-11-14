@@ -10,7 +10,7 @@ import { useState } from 'react';
 import PageHeader from '../../../shared/PageHeader/index.jsx';
 import GroupsList from '../../../widgets/groups';
 
-const GroupsPage = () => {
+const MyGroupsPage = () => {
   const breakpoints = Grid.useBreakpoint();
   const [searchParam, setSearchParam] = useState('');
 
@@ -56,6 +56,12 @@ const GroupsPage = () => {
       faculty: 'Инфофак факультет',
       year: 3,
     },
+    {
+      id: 5,
+      name: 'ФУ-101',
+      faculty: 'Фил факультет',
+      year: 1,
+    },
   ];
 
   const filteredList = !searchParam
@@ -70,7 +76,7 @@ const GroupsPage = () => {
   return (
     <>
       <PageHeader
-        title={'Все группы'}
+        title={'Мои группы'}
         actionSlot={[
           <Input.Search
             key={'search'}
@@ -101,4 +107,4 @@ const GroupsPage = () => {
   );
 };
 
-export default GroupsPage;
+export default MyGroupsPage;

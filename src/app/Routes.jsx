@@ -1,5 +1,5 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import GroupsPage from '../pages/groups';
+import { GroupsPage, MyGroupsPage } from '../pages/groups';
 import Layout from '../shared/Layout';
 
 export const router = createBrowserRouter([
@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'my-groups',
-        element: <div>my-groups</div>,
+        element: <MyGroupsPage />,
       },
       {
         path: 'profile',
