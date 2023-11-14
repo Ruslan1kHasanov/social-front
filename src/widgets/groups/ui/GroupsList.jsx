@@ -1,7 +1,11 @@
 import { Button, Card, List } from 'antd';
+import { Link } from 'react-router-dom';
 import './index.scss';
 
 const GroupsList = ({ list }) => {
+  // тут будет хук на получение объекта пользователя
+  const is_admin = true;
+
   return (
     <Card className={'groups_list_container'}>
       <List
@@ -12,9 +16,15 @@ const GroupsList = ({ list }) => {
           <List.Item
             key={item.id}
             actions={[
-              <Button type={'primary'} key={'req'}>
-                запросить контроль
-              </Button>,
+              is_admin ? (
+                <Link to={item.id} key={'req'}>
+                  информация о группе
+                </Link>
+              ) : (
+                <Button type={'link'} key={'req'}>
+                  запросить контроль
+                </Button>
+              ),
             ]}
           >
             <List.Item.Meta

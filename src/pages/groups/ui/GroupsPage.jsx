@@ -86,8 +86,12 @@ const GroupsPage = () => {
             placement={'bottomRight'}
             trigger={['click']}
           >
-            <Button type={'primary'} icon={<FilterOutlined />}>
-              {!breakpoints.xs && 'Фильтровать'}
+            <Button
+              type={'primary'}
+              icon={<FilterOutlined />}
+              style={breakpoints.xs && { padding: '7px' }}
+            >
+              {!breakpoints.xs && 'Сортировать'}
             </Button>
           </Dropdown>,
         ]}
