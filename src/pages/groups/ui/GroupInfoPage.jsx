@@ -1,10 +1,4 @@
-import {
-  ArrowDownOutlined,
-  ArrowUpOutlined,
-  FilterOutlined,
-  FrownOutlined,
-  TrophyOutlined,
-} from '@ant-design/icons';
+import { FilterOutlined, FrownOutlined, TrophyOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Grid, Input } from 'antd';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -20,21 +14,11 @@ const GroupInfoPage = () => {
   const items = [
     {
       key: '1',
-      label: 'старший курс',
-      icon: <ArrowUpOutlined />,
-    },
-    {
-      key: '2',
-      label: 'младший курс',
-      icon: <ArrowDownOutlined />,
-    },
-    {
-      key: '3',
       label: 'высокий рейтинг',
       icon: <TrophyOutlined />,
     },
     {
-      key: '4',
+      key: '2',
       label: 'низкий рейтинг',
       icon: <FrownOutlined />,
     },
