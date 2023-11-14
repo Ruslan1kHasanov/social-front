@@ -9,11 +9,15 @@ const GroupsList = ({ list }) => {
   return (
     <Card className={'groups_list_container'}>
       <List
+        style={{
+          padding: '0px',
+        }}
         className={'groups_list_container__list'}
         itemLayout="horizontal"
         dataSource={list}
         renderItem={(item) => (
           <List.Item
+            className={'groups_list_container__list__item'}
             key={item.id}
             actions={[
               is_admin ? (
