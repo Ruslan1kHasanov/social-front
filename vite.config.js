@@ -3,8 +3,6 @@ import { defineConfig } from 'vite';
 
 
 export default () => {
-  process.env = {...process.env, ...loadEnv(mode, process.cwd())};
-
   return defineConfig({
     plugins: [react()],
     build: {

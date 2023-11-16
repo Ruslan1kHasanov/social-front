@@ -1,8 +1,9 @@
 import { FilterOutlined, FrownOutlined, TrophyOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Grid, Input } from 'antd';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PageHeader from '../../../shared/PageHeader/index.jsx';
+import { StudentsList } from '../../../widgets/users/ui/StudentsList.jsx';
 
 const GroupInfoPage = () => {
   const breakpoints = Grid.useBreakpoint();
@@ -23,6 +24,27 @@ const GroupInfoPage = () => {
       icon: <FrownOutlined />,
     },
   ];
+
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+  const loadMoreData = () => {
+    if (loading) {
+      return;
+    }
+    setLoading(true);
+    fetch('https://randomuser.me/api/?results=10&inc=name,gender,email,nat,picture&noinfo')
+      .then((res) => res.json())
+      .then((body) => {
+        setData([...data, ...body.results]);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  };
+  useEffect(() => {
+    loadMoreData();
+  }, []);
 
   return (
     <>
@@ -53,6 +75,7 @@ const GroupInfoPage = () => {
           </Dropdown>,
         ]}
       />
+      <StudentsList data={data} />
     </>
   );
 };
