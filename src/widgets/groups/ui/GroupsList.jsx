@@ -1,11 +1,14 @@
 import { Button, Card, List } from 'antd';
 import { Link } from 'react-router-dom';
 import './index.scss';
+import { groupsApi } from '../../../entities/groups/api/groups.api';
 
 const GroupsList = ({ list }) => {
+  const { useGetBooksQuery } = groupsApi;
+  const data = useGetBooksQuery();
+  console.log(data);
   // тут будет хук на получение объекта пользователя
   const is_admin = true;
-  // console.log(is_admin);
   return (
     <Card className={'groups_list_container'}>
       <List
