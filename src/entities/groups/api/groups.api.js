@@ -9,7 +9,7 @@ export const groupsApi = baseApi.injectEndpoints({
       query: () => '/my-groups',
     }),
     getBooks: builder.query({
-      query: () => '/api/books',
+      query: () => '/todos',
     }),
   }),
   overrideExisting: false,
