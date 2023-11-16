@@ -1,0 +1,17 @@
+@media (max-width: 600px) {
+  .student-main-container {
+    display: grid;
+    flex-wrap: wrap;
+  }
+}
+
+.student-main-container {
+  gap: 20px;
+}
+
+.student-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}

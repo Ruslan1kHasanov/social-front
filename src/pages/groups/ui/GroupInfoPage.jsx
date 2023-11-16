@@ -1,11 +1,23 @@
 import { FilterOutlined, FrownOutlined, TrophyOutlined } from '@ant-design/icons';
-import { Button, Dropdown, Grid, Input } from 'antd';
+import { Button, Dropdown, Grid, Input, List, Card, Avatar, Modal } from 'antd';
 import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import PageHeader from '../../../shared/PageHeader/index.jsx';
 import { StudentsList } from '../../../widgets/users/ui/StudentsList.jsx';
 
 const GroupInfoPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   const breakpoints = Grid.useBreakpoint();
   const [searchParam, setSearchParam] = useState('');
   const params = useParams();
@@ -25,26 +37,63 @@ const GroupInfoPage = () => {
     },
   ];
 
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
-  const loadMoreData = () => {
-    if (loading) {
-      return;
-    }
-    setLoading(true);
-    fetch('https://randomuser.me/api/?results=10&inc=name,gender,email,nat,picture&noinfo')
-      .then((res) => res.json())
-      .then((body) => {
-        setData([...data, ...body.results]);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
-  };
-  useEffect(() => {
-    loadMoreData();
-  }, []);
+  const students = [
+    {
+      id: 1,
+      name: 'Данилов Дмитрий',
+      email: 'randomemail@gmail.ru',
+      rating: 100,
+    },
+    {
+      id: 2,
+      name: 'Лавров Иван',
+      email: 'randomemail@gmail.ru',
+      rating: 42,
+      description: 'Я студент ляляля',
+    },
+    {
+      id: 3,
+      name: 'Спиридонова Василиса',
+      email: 'randomemail@gmail.ru',
+      rating: 51,
+      description: 'Я студент ляляля',
+    },
+    {
+      id: 4,
+      name: 'Мещеряков Тимофей',
+      email: 'randomemail@gmail.ru',
+      rating: 63,
+      description: 'Я студент ляляля',
+    },
+    {
+      id: 5,
+      name: 'Петров Роман',
+      email: 'randomemail@gmail.ru',
+      rating: 236,
+      description: 'Я студент ляляля',
+    },
+    {
+      id: 6,
+      name: 'Дроздов Григорий',
+      email: 'randomemail@gmail.ru',
+      rating: 874,
+      description: 'Я студент ляляля',
+    },
+    {
+      id: 7,
+      name: 'Шубина Сара',
+      email: 'randomemail@gmail.ru',
+      rating: 425,
+      description: 'Я студент ляляля',
+    },
+    {
+      id: 8,
+      name: 'Осипов Матвей',
+      email: 'randomemail@gmail.ru',
+      rating: 24,
+      description: 'Я студент ляляля',
+    },
+  ];
 
   return (
     <>
@@ -75,7 +124,51 @@ const GroupInfoPage = () => {
           </Dropdown>,
         ]}
       />
-      <StudentsList data={data} />
+      <Card>
+        <List
+          itemLayout="horizontal"
+          dataSource={students}
+          renderItem={(item, index) => (
+            <List.Item>
+              <List.Item.Meta
+                avatar={
+                  <Avatar src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${index}`} />
+                }
+                title={
+                  <span>
+                    {item.name}
+                    {` `}
+                    <span style={{ fontWeight: 400 }}>({item.email})</span>
+                    {` `}
+                    <span
+                      style={{
+                        color: item.rating < 200 ? 'red' : item.rating < 500 ? 'orange' : 'green',
+                      }}
+                    >
+                      {item.rating}
+                    </span>
+                  </span>
+                }
+              />
+              <Link style={{ margin: 10 }} to={`${item.id}`} key={'req'}>
+                открыть профиль
+              </Link>
+              <Button type="primary" onClick={showModal}>
+                изменить рейтинг
+              </Button>
+            </List.Item>
+          )}
+        />
+        <Modal
+          centered
+          title="Изменение рейтинга"
+          open={isModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <Input placeholder="Введите значение" />
+        </Modal>
+      </Card>
     </>
   );
 };

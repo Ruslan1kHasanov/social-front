@@ -1,5 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { GroupInfoPage, GroupsPage, MyGroupsPage } from '../pages/groups';
+import { StudentPage } from '../pages/student/ui/StudentPage';
+import { UserPage } from '../pages/user/ui/UserPage';
 import Layout from '../shared/Layout';
 
 export const router = createBrowserRouter([
@@ -24,8 +26,12 @@ export const router = createBrowserRouter([
         element: <GroupInfoPage />,
       },
       {
+        path: 'my-groups/:id/:id_student',
+        element: <StudentPage />,
+      },
+      {
         path: 'profile',
-        element: <div>profile</div>,
+        element: <UserPage />,
       },
       {
         path: 'settings',
