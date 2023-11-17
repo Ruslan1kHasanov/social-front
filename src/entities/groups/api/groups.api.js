@@ -11,7 +11,7 @@ export const groupsApi = baseApi.injectEndpoints({
     getReasons: builder.query({
       query: () => 'api/reasons',
     }),
-    getGroupsId: builder.query({
+    getGroupInfo: builder.query({
       query: (id) => `/api/groups/${id}`,
     }),
     getStudentsId: builder.query({

@@ -2,11 +2,19 @@ import { FilterOutlined, FrownOutlined, TrophyOutlined } from '@ant-design/icons
 import { Avatar, Button, Card, Dropdown, Grid, Input, List } from 'antd';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { groupsApi } from '../../../entities/groups/api/groups.api.js';
 import EditRatingDialog from '../../../features/student';
 import PageHeader from '../../../shared/PageHeader/index.jsx';
 
 const GroupInfoPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const breakpoints = Grid.useBreakpoint();
+  const [searchParam, setSearchParam] = useState('');
+  const { id } = useParams();
+  const { useGetGroupInfoQuery } = groupsApi;
+  const request = useGetGroupInfoQuery(id);
+  console.log(request);
+
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -16,12 +24,6 @@ const GroupInfoPage = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-
-  const breakpoints = Grid.useBreakpoint();
-  const [searchParam, setSearchParam] = useState('');
-  const params = useParams();
-
-  console.log(params);
 
   const items = [
     {
@@ -97,7 +99,7 @@ const GroupInfoPage = () => {
   return (
     <>
       <PageHeader
-        title={`Группа ${params.id}`}
+        title={`Группа ${id}`}
         actionSlot={[
           <Input.Search
             key={'search'}
