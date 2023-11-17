@@ -13,9 +13,9 @@ function getItem(label, key, icon, children, type) {
 }
 
 const items = [
-  getItem(<Link to={'groups'}>Группы</Link>, '1', <TeamOutlined />),
+  getItem(<Link to={'profile'}>Профиль</Link>, '1', <IdcardOutlined />),
+  getItem(<Link to={'groups'}>Группы</Link>, '4', <TeamOutlined />),
   getItem(<Link to={'my-groups'}>Мои группы</Link>, '2', <ContactsOutlined />),
-  getItem(<Link to={'profile'}>Профиль</Link>, '4', <IdcardOutlined />),
   getItem(<Link to={'settings'}>Настройки</Link>, '3', <SettingOutlined />),
 ];
 

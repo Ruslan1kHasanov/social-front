@@ -1,10 +1,9 @@
 import { FilterOutlined, FrownOutlined, TrophyOutlined } from '@ant-design/icons';
-import { Button, Dropdown, Grid, Input, List, Card, Avatar, Modal } from 'antd';
-import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { Avatar, Button, Card, Dropdown, Grid, Input, List } from 'antd';
+import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import EditRatingDialog from '../../../features/student';
 import PageHeader from '../../../shared/PageHeader/index.jsx';
-import { StudentsList } from '../../../widgets/users/ui/StudentsList.jsx';
 
 const GroupInfoPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -159,15 +158,7 @@ const GroupInfoPage = () => {
             </List.Item>
           )}
         />
-        <Modal
-          centered
-          title="Изменение рейтинга"
-          open={isModalOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <Input placeholder="Введите значение" />
-        </Modal>
+        <EditRatingDialog open={isModalOpen} handleCancel={handleCancel} handleOk={handleOk} />
       </Card>
     </>
   );

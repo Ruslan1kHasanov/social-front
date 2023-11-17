@@ -6,7 +6,11 @@ export default () => {
   return defineConfig({
     plugins: [react()],
     build: {
-      outDir: '../../django-react/mysite/frontend/dist',
+      outDir: 'dist',
     },
+    server: {
+      port: 8000,
+      host: '26.83.222.115',
+    }
   });
 };

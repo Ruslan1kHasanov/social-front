@@ -8,8 +8,8 @@ export const groupsApi = baseApi.injectEndpoints({
     getMyGroups: builder.query({
       query: () => '/api/my-groups',
     }),
-    getBooks: builder.query({
-      query: () => '/todos',
+    getReasons: builder.query({
+      query: () => 'api/reasons',
     }),
     getGroupsId: builder.query({
       query: (id) => `/api/groups/${id}`,

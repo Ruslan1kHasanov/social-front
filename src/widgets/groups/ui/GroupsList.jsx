@@ -2,12 +2,8 @@ import { Button, Card, List, Modal } from 'antd';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './index.scss';
-import { groupsApi } from '../../../entities/groups/api/groups.api';
 
 const GroupsList = ({ list }) => {
-  const { useGetBooksQuery } = groupsApi;
-  const data = useGetBooksQuery();
-  console.log(data);
   // тут будет хук на получение объекта пользователя
   const is_admin = false;
   const params = useLocation();
@@ -52,7 +48,7 @@ const GroupsList = ({ list }) => {
                 description={
                   <>
                     <span>факультет/институт: </span>
-                    <b>{item.faculty}</b>
+                    <b>{item.faculty_name}</b>
                   </>
                 }
               />

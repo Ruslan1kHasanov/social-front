@@ -1,8 +1,7 @@
+import { Card, List } from 'antd';
 import React from 'react';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card, List } from 'antd';
-import { SpaceContext } from 'antd/es/space';
 import './index.scss';
+
 const { Meta } = Card;
 
 const data = [
@@ -36,11 +35,6 @@ export const StudentPage = () => (
           width: 500,
         }}
         cover={<img alt="example" src="https://i.pravatar.cc/300" />}
-        actions={[
-          <SettingOutlined key="setting" />,
-          <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
-        ]}
       >
         <Meta
           title={
@@ -51,13 +45,7 @@ export const StudentPage = () => (
         />
       </Card>
       <div className="student-info-container">
-        <Card
-          title="Информация"
-          bordered={false}
-          style={{
-            height: 150,
-          }}
-        >
+        <Card title="Информация" bordered={false}>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus soluta magnam
             repellendus eligendi itaque at quisquam nisi corrupti nemo tempora et quo rem quis,

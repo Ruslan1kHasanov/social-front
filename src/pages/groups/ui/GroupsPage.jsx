@@ -7,12 +7,16 @@ import {
 } from '@ant-design/icons';
 import { Button, Dropdown, Grid, Input } from 'antd';
 import { useState } from 'react';
+import { groupsApi } from '../../../entities/groups/api/groups.api.js';
 import PageHeader from '../../../shared/PageHeader/index.jsx';
 import GroupsList from '../../../widgets/groups';
 
 const GroupsPage = () => {
   const breakpoints = Grid.useBreakpoint();
   const [searchParam, setSearchParam] = useState('');
+  const { useGetGroupsQuery } = groupsApi;
+  const request = useGetGroupsQuery();
+  console.log(request);
 
   const items = [
     {
@@ -59,8 +63,8 @@ const GroupsPage = () => {
   ];
 
   const filteredList = !searchParam
-    ? list
-    : list.filter((el) => {
+    ? request.data
+    : request.data?.filter((el) => {
         let pos = -1;
         while ((pos = el.name.toLowerCase().indexOf(searchParam.toLowerCase(), pos + 1)) !== -1) {
           return true;
