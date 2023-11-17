@@ -16,7 +16,6 @@ const GroupsPage = () => {
   const [searchParam, setSearchParam] = useState('');
   const { useGetGroupsQuery } = groupsApi;
   const request = useGetGroupsQuery();
-  console.log(request);
 
   const items = [
     {
@@ -38,27 +37,6 @@ const GroupsPage = () => {
       key: '4',
       label: 'низкий рейтинг',
       icon: <FrownOutlined />,
-    },
-  ];
-
-  const list = [
-    {
-      id: 1,
-      name: 'МТ-402',
-      faculty: 'Математический факультет',
-      year: 4,
-    },
-    {
-      id: 2,
-      name: 'МТ-401',
-      faculty: 'Математический факультет',
-      year: 4,
-    },
-    {
-      id: 3,
-      name: 'ИТ-303',
-      faculty: 'Инфофак факультет',
-      year: 3,
     },
   ];
 
