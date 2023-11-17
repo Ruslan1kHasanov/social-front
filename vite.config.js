@@ -6,7 +6,7 @@ export default () => {
   return defineConfig({
     plugins: [react()],
     build: {
-      outDir: 'dist',
+      outDir: '../../social_project/frontend/dist',
     },
     server: {
       port: 8000,
